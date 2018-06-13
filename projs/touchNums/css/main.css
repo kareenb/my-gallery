@@ -1,0 +1,93 @@
+* {
+    text-align: center;
+    font-family: 'Jua', sans-serif;
+}
+body,html {
+    height: 100%;
+}
+h1,h2,h3,h4 {
+    color: white;
+}
+
+body {
+    background: linear-gradient(to bottom right, black, rgb(75, 75, 75));
+    background-repeat: no-repeat;
+    margin: 0;
+
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color: white;
+    background-color: rgb(70, 68, 68);
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+table {
+    margin: 0 auto;
+}
+
+table td {
+    border: 1px rgb(226, 223, 223) solid;
+    border-radius: 10px;
+    width: 12px;
+    padding: 10px;
+    text-align: center;
+    color: rgb(226, 223, 223);
+    cursor: pointer;
+}
+
+.clicked {
+    background-color: rgb(226, 223, 223);
+    color: black;
+    animation-name: correct;
+    animation-duration: 2s;
+}
+
+.wrong {
+    animation-name: incorrect;
+    animation-duration: 2s;
+}
+
+@keyframes incorrect {
+    0% {background-color: rgb(150, 7, 7)}
+    100% {background-color: none}
+}
+
+@keyframes correct {
+    0% {background-color: rgb(0, 255, 42)}
+    100% {background-color: rgb(226, 223, 223)}
+}
+
+button {
+    margin-bottom: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 1s;
+}
+
+button:hover {
+    transform: scale(1.8);
+}
+
+.easy:hover {
+background-color: rgb(95, 255, 47);
+}
+
+.medium:hover {
+background-color: rgb(255, 153, 0);
+}
+
+.hard:hover {
+background-color: red;
+}
+
+.time {
+    display: none;
+    color: white;
+}

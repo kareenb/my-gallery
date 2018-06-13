@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="lib/animate.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Todos</title>
+</head>
+
+<body onload="init()">
+    <div class="header">
+        <h1>
+            <span class="total-count"></span> ToDo's
+        </h1>
+    </div>
+
+    <div class="container">
+        <div>
+            <h2 class="hidden">info-header</h2>
+        </div>
+        <button class="btn btn-add" onclick="toggleModal()">+</button>
+        <div class="addTodoModal opaque">
+            <span>
+                What do you want ToDo?
+                <br/>
+                <input type="text" />
+            </span>
+            <span>
+                <br/>How important?
+                <br/>
+                <input type="number" min="1" max="3" />
+                <br/>
+                <span>(1- highly; 3- least)</span>
+            </span>
+            <button class="btn" onclick="addTodo()">add</button>
+        </div>
+        <ul class="todos"></ul>
+    </div>
+
+    <div class="footer">
+        <span>
+            <h4></h4>
+            <div class="filter">
+                <button class="all pressed" onclick="setFilter('all')">All</button>
+                <button class="active" onclick="setFilter('active')">Active</button>
+                <button class="done" onclick="setFilter('done')">Done</button>
+            </div>
+        </span>
+
+        <div class="sort">
+            <h4>Sort by:</h4>
+            <button class="alphabet" onclick="sortTodos(this.className)">abc</button>
+            <button class="date" onclick="sortTodos(this.className)">date</button>
+            <button class="importance" onclick="sortTodos(this.className)">importance</button>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
