@@ -17,6 +17,8 @@ function init() {
     }
 
     gCurrQuest = gQuestsTree;
+
+    revealGenie()
 }
 
 function startGuessing() {
@@ -33,12 +35,11 @@ function userResponse(res) {
     // If this node has no children
     if (isChildless(gCurrQuest)) {
         if (res === 'yes') {
-            alert('Yes, I knew it!');
-            // TODO: improve UX
+            toggleGenieRightModal();
             $('.gameQuest').hide();
             $('.restartGame').show();
         } else {
-            alert('I dont know...teach me!')
+            toggleGenieWrongModal();
             $('.gameQuest').hide();
             $('.gameNewQuest').show();
         }
@@ -64,6 +65,7 @@ function addGuess() {
     
     $('#newQuest').val('');
     $('#newGuess').val('');
+    toggleGenieWrongModal();
     restartGame();
 }
 
@@ -79,6 +81,7 @@ function restartGame() {
     $('.gameNewQuest').hide();
     $('.gameStart').show();
     $('.restartGame').hide();
+    if (!document.querySelector('.genie-right').classList.contains('no-display')) toggleGenieRightModal();
     gCurrQuest = gQuestsTree;
     gPrevQuest = null;
     gLastRes = null;
@@ -86,4 +89,18 @@ function restartGame() {
 
 function isChildless(node) {
     return (node.yes === null && node.no === null)
+}
+
+function revealGenie() {
+    $('.genie').addClass('visible');
+}
+
+function toggleGenieRightModal() {
+    $('.genie').toggleClass('no-display');
+    $('.genie-right').toggleClass('no-display');
+}
+
+function toggleGenieWrongModal() {
+    $('.genie').toggleClass('no-display');
+    $('.genie-wrong').toggleClass('no-display');
 }

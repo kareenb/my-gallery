@@ -5,13 +5,23 @@
   <meta charset="utf-8">
   <title>My App</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
   <link rel="stylesheet" href="css/app.css" />
 </head>
 
 <body>
   <header class="box">
-    <img src="img/layout/logo.png" />
     <h1>Guess Who</h1>
+    <img class="genie" src="img/layout/genie.png" />
+    <img class="genie-right no-display" src="img/layout/genie-right.png" />
+    <img class="genie-wrong no-display" src="img/layout/genie-wrong.gif" />
+    <img src="img/layout/lamp.png" />
+    <div class="lamp-smoke">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </header>
 
   <main>
@@ -31,7 +41,7 @@
     </section>
 
     <section class="gameNewQuest" style="display: none">
-      <h2>OK, I gave up...</h2>
+      <h2>OK, I give up...</h2>
 
       <form class="form-horizontal">
         <div class="form-group">
@@ -54,12 +64,24 @@
       </form>
     </section>
 
+    <section class="modals">
+      <div class="genie-right no-display">
+        <h2>I knew it!</h2>
+      </div>
+
+      <div class="genie-wrong no-display">
+        <h3>Well,</h3>
+        <h3>I don't know everything...</h3>
+        <h3>Teach me!</h3>
+      </div>
+    </section>
+
 
   </main>
 
-  <footer>
+  <!-- <footer>
     cofferight &copy; 2016
-  </footer>
+  </footer> -->
 
   <script src="lib/jquery/jquery.js"></script>
 

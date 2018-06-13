@@ -1,0 +1,233 @@
+
+body {
+  background-color: rgb(196, 167, 3);
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+header {
+  background-color: rgb(29, 29, 29);
+  box-shadow: 0px 6px 18px #000000de;
+  color:rgb(196, 167, 3);
+  font-family: 'Tangerine', cursive;
+  text-align: center;
+  font-size: 3em;
+  height: 370px;
+}
+
+footer {
+  background-color: black;
+  text-align: center;
+  color:lightblue;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: -18px;
+}
+
+.genie {
+  width: 550px;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 3s, width 4s;
+}
+
+.genie-right {
+    width: 250px;
+}
+
+  .genie-wrong {
+      width: 200px;
+}
+
+.box img:nth-of-type(4) {
+  width: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 200px;
+}
+
+.lamp-smoke {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  bottom: 67px;
+  left: 390px;
+}
+
+.lamp-smoke div {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: -1px -2px 18px 10px white, -1px 5px 16px 10px white;
+}
+
+.lamp-smoke div:nth-of-type(1) {
+  position: relative;
+  left: 10px;
+  top: 65px;
+  animation-name: bubble1;
+  animation-duration: 2.5s;
+}
+
+.lamp-smoke div:nth-of-type(2) {
+  position: relative;
+  left: 30px;
+  top: 100px;
+  animation-name: bubble2;
+  animation-duration: 2.5s;
+}
+
+.lamp-smoke div:nth-of-type(3) {
+  position: relative;
+  top: 136px;
+  animation-name: bubble3;
+  animation-duration: 2.5s;
+}
+
+@keyframes bubble1 {
+  0% {top: 180px; left: -21px; opacity: 0;}
+  25% {top: 159px; left:-8px; opacity: .3;}
+  50% {top: 123px; left: 14px; opacity: .5;}
+  75% {top: 100px; left: 30px; opacity: .8;}
+  100% {top: 65px; left: 10px; opacity: 1;}
+}
+
+@keyframes bubble2 {
+  0% {top: 180px; left: -21px; opacity: 0;}
+  25% {top: 180px; left: -21px; opacity: 0;}
+  50% {top: 159px; left: -20px; opacity: .3;}
+  75% {top: 121px; left: -14; opacity: .7;}
+  100% {top: 100px; left: 30px; opacity: 1;}
+}
+
+@keyframes bubble3 {
+  0% {top: 180px; left: -21px; opacity: 0;}
+  25% {top: 180px; left: -21px; opacity: 0;}
+  50% {top: 180px; left: -21px; opacity: 0;}
+  75% {top: 180px; left: -21px; opacity: 0;}
+  100% {top: 136px; left: 0px; opacity: 1;}
+}
+
+.gameStart, .gameQuest, .restartGame, .gameNewQuest {
+    margin-bottom: 200px;
+}
+
+.gameStart h2, .gameQuest h2, .gameNewQuest h2 {
+  font-family: 'Tangerine', cursive;
+  font-size: 4.5em;
+}
+
+.gameStart button {
+    border-color: rgb(29, 29, 29);
+    background-color: rgb(29, 29, 29);
+}
+
+.gameStart button:hover {
+    border-color: rgb(29, 29, 29);
+    background-color: rgb(221, 0, 28);
+}
+
+.gameStart button,
+.gameQuest button {
+  font-family: 'Vidaloka', serif;
+  border-radius: 50%;
+}
+
+.gameQuest button:nth-of-type(1) {
+  background-color: rgb(123, 206, 247);
+}
+
+.gameQuest button:nth-of-type(2) {
+  background-color: rgb(221, 0, 28);
+}
+
+.restartGame button {
+  font-family: 'Tangerine', cursive;
+  font-size: 3em;
+  border-radius: 50%;
+  border-color: white;
+  background-color: rgb(29, 29, 29);
+}
+
+.restartGame button:hover {
+  background-color: white;
+  color: black;
+}
+
+.gameNewQuest {
+    width: 500px;
+}
+
+form label.control-label {
+  font-family: 'Vidaloka', serif;
+  font-size: 1.1em;
+  width: 200px;
+}
+
+.form-group button {
+  font-family: 'Tangerine', cursive;
+  font-size: 2em;
+  border-radius: 50%;
+  border-color: white;
+  background-color: rgb(29, 29, 29);
+  color: white;
+}
+
+div input.form-control {
+    font-size: 10px;
+}
+
+.modals .genie-right {
+    font-family: 'Tangerine', cursive; 
+    background-color: rgba(196, 167, 3, .7);
+    border-radius: 50%;
+    text-align: center;
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    top: 100px;
+    left: 20px;
+}
+
+.modals .genie-right h2 {
+    font-size: 3em;
+}
+
+.modals .genie-wrong {
+    font-family: 'Tangerine', cursive; 
+    background-color: rgba(196, 167, 3, .7);
+    border-radius: 20%;
+    text-align: center;
+    width: 150px;
+    height: 200px;
+    position: absolute;
+    top: 150px;
+    left: 20px;
+}
+
+.modals .genie-wrong h3 {
+      font-size: 2em;
+      font-weight: bold;
+}
+
+.visible {
+  width: 250px;
+  opacity: 1;
+}
+
+.no-display {
+    display: none;
+}
