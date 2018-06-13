@@ -53,9 +53,10 @@ function userResponse(res) {
 
 function addGuess() {
     var newQuestTxt = $('#newQuest').val();
-    gPrevQuest.no = createQuest(newQuestTxt);
-    var newQuest = gPrevQuest.no;
+    var newQuest = createQuest(newQuestTxt);
     var newQuestRes = $('#newGuess').val();
+    
+    gPrevQuest[gLastRes] = newQuest;
     newQuest.yes = createQuest(newQuestRes);
     newQuest.no = gCurrQuest;
 
