@@ -8,44 +8,64 @@ var gLastRes = null;
 $(document).ready(init);
 
 function init() {
-    gQuestsTree = createQuest('Male?');
-
-    gQuestsTree.yes = createQuest('Gandhi');
-    gQuestsTree.no = createQuest('Rita');
+    if (loadFromStorage('quests')) gQuestsTree = loadFromStorage('quests');
+    else {
+        gQuestsTree = createQuest('Male?');
+    
+        gQuestsTree.yes = createQuest('Gandhi');
+        gQuestsTree.no = createQuest('Rita');
+    }
 
     gCurrQuest = gQuestsTree;
 }
 
 function startGuessing() {
-    // TODO: hide the gameStart section
+    $('.gameStart').hide();
     renderQuest();
-    // TODO: show the gameQuest section
+    $('.gameQuest').show();
 }
 
 function renderQuest() {
-    // TODO: select the <h2> inside gameQuest and update its text by the currQuest text
+    $('.gameQuest h2').html(gCurrQuest.txt);
 }
 
 function userResponse(res) {
-
     // If this node has no children
     if (isChildless(gCurrQuest)) {
         if (res === 'yes') {
             alert('Yes, I knew it!');
             // TODO: improve UX
+            $('.gameQuest').hide();
+            $('.restartGame').show();
         } else {
             alert('I dont know...teach me!')
-            // TODO: hide and show gameNewQuest section
+            $('.gameQuest').hide();
+            $('.gameNewQuest').show();
         }
     } else {
-        // TODO: update the prev, curr and res global vars
+        gPrevQuest = gCurrQuest;
+        gLastRes = res;
+        if (res === 'yes') {
+            gCurrQuest = gPrevQuest.yes;
+        } else {
+            gCurrQuest = gPrevQuest.no
+        }
         renderQuest();
     }
 }
 
 function addGuess() {
-    // TODO: create 2 new Quests based on the inputs' values
-    // TODO: connect the 2 Quests to the quetsions tree
+    var newQuestTxt = $('#newQuest').val();
+    gPrevQuest.no = createQuest(newQuestTxt);
+    var newQuest = gPrevQuest.no;
+    var newQuestRes = $('#newGuess').val();
+    newQuest.yes = createQuest(newQuestRes);
+    newQuest.no = gCurrQuest;
+
+    saveToStorage('quests', gQuestsTree);
+    
+    $('#newQuest').val('');
+    $('#newGuess').val();
     restartGame();
 }
 
@@ -60,6 +80,7 @@ function createQuest(txt) {
 function restartGame() {
     $('.gameNewQuest').hide();
     $('.gameStart').show();
+    $('.restartGame').hide();
     gCurrQuest = gQuestsTree;
     gPrevQuest = null;
     gLastRes = null;
