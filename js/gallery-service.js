@@ -40,6 +40,16 @@ var gProjs = [
                     url: 'projs/inPicture',
                     publishedAt: getTimeStamp(),
                     // labels: ['']
+                },
+
+                {
+                    id: 'guessMe',
+                    name: 'Guess Me',
+                    title: 'lorem ipsum dolor',
+                    desc: 'lorem ipsum dolor.',
+                    url: 'projs/guessMe',
+                    publishedAt: getTimeStamp(),
+                    // labels: ['']
                 }
 ];
 
