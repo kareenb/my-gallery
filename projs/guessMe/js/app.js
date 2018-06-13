@@ -8,8 +8,8 @@ var gLastRes = null;
 $(document).ready(init);
 
 function init() {
-    if (loadFromStorage('quests')) gQuestsTree = loadFromStorage('quests');
-    else {
+    gQuestsTree = loadFromStorage('quests');
+    if (!gQuestsTree) {
         gQuestsTree = createQuest('Male?');
     
         gQuestsTree.yes = createQuest('Gandhi');
@@ -45,11 +45,8 @@ function userResponse(res) {
     } else {
         gPrevQuest = gCurrQuest;
         gLastRes = res;
-        if (res === 'yes') {
-            gCurrQuest = gPrevQuest.yes;
-        } else {
-            gCurrQuest = gPrevQuest.no
-        }
+        gCurrQuest = gPrevQuest[res]
+        
         renderQuest();
     }
 }
@@ -65,7 +62,7 @@ function addGuess() {
     saveToStorage('quests', gQuestsTree);
     
     $('#newQuest').val('');
-    $('#newGuess').val();
+    $('#newGuess').val('');
     restartGame();
 }
 
