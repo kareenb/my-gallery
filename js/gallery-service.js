@@ -50,6 +50,16 @@ var gProjs = [
                     url: 'projs/guessMe',
                     publishedAt: getTimeStamp(),
                     // labels: ['']
+                },
+
+                {
+                    id: 'psdToHtml',
+                    name: 'PSD to HTML',
+                    title: 'Pixel Perfect',
+                    desc: 'lorem ipsum dolor.',
+                    url: 'projs/psd-to-html',
+                    publishedAt: getTimeStamp(),
+                    // labels: ['']
                 }
 ];
 
