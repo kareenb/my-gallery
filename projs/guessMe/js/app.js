@@ -18,7 +18,7 @@ function init() {
 
     gCurrQuest = gQuestsTree;
 
-    revealGenie()
+    revealGenie();
 }
 
 function startGuessing() {

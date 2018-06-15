@@ -1,0 +1,272 @@
+* {
+    box-sizing: border-box;
+    /* outline: 1px solid #58c93a; */
+}
+
+@font-face {
+    font-family: 'eurofurence';
+    src: url('../fonts/eurofurence/eurof55.ttf');
+}
+
+@font-face {
+    font-family: 'lato';
+    src: url('../fonts/lato/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'lato';
+    src: url('../fonts/lato/Lato-Bold.ttf');
+    font-weight: 700;
+}
+
+html {
+    font-family: 'lato', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    width: 460px;
+}
+
+/* Helpers */
+
+.container {
+    width: 980px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.center-align {
+    align-items: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.clean-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*  Header */
+
+header {
+    width: 100%;
+    height: 130px;
+    background-color: #292929;
+    box-shadow: inset 0 -6px 0 #1e1e1e;
+}
+
+header .container {
+    padding: 20px;
+}
+
+.logo {
+    font-family: 'eurofurence', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.logo::first-letter {
+    letter-spacing: -0.8px;
+}
+
+.logo span {
+    color: #58c93a;
+    letter-spacing: -0.8px;
+}
+
+h1.logo {
+    color: #ffffff;
+}
+
+.main-menu {
+    height: 100%;
+    margin: 0;
+}
+
+.main-menu li {
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 0 1px 0 #1e1e1e;
+    box-shadow: 1px 0 0 #1d1d1d;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-menu li::first-letter {
+    letter-spacing: 0.8px;
+}
+
+.main-menu li:first-of-type {
+    color: #58c93a;
+    box-shadow: -1px 0 0 #1d1d1d, 1px 0 0 #1d1d1d, inset 0 -6px 0 #58c93a;
+}
+
+/* Main */
+
+main.container {
+    border-left: 1px solid #e1e0e0;
+    border-right: 1px solid #e1e0e0;
+    padding-top: 80px;
+}
+
+ul.blog-posts {
+    margin: 20px;
+}
+
+.blog-posts li {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.post {
+    width: 445px;
+}
+
+.post h2 {
+    color: #4f4e4e;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.84px;
+    line-height: 30px;
+    margin: 0;
+}
+
+.post p {
+    color: #606060;
+    letter-spacing: 0.48px;
+    line-height: 20px;
+}
+
+.post button {
+    color: #c2c1c1;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: start;
+    background-color: #ffffff;
+    border: 2px solid #c2c2c2;
+    border-radius: 25px;
+    width: 185px;
+    height: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
+    transition: all .3s;
+}
+
+.post button:hover {
+    cursor: pointer;
+    color: #58c93a;
+    border: 2px solid #58c93a;
+    width: 210px;
+}
+
+.post button:hover::after {
+    content: '→';
+    float: right;
+}
+
+.paging {
+    border-top: 1px solid #e1e0e0;
+    max-height: 75px;
+    padding: 30px;
+}
+
+.paging button {
+    color: #818181;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+}
+
+.paging button::first-letter {
+    letter-spacing: 0.9px;
+}
+
+/* Footer */
+
+footer {
+    box-shadow: inset 0 1px 0 #e1e0e0;
+    background-color: #f8f8f8;
+    height: 315px;
+    padding: 80px;
+}
+
+footer .logo {
+    color: #292929;
+    margin: 0;
+}
+
+footer p {
+    color: #a6a6a6;
+    font-size: 13px;
+    line-height: 20px;
+    margin: 0;
+}
+
+footer p span {
+    letter-spacing: 0.39px;
+}
+
+footer p span:last-child {
+    color: #939292;
+    font-weight: 700;
+}
+
+.social {
+    width: 230px;
+}
+
+.social button {
+    cursor: pointer;
+    color: white;
+    border: none;
+    background-color: #e5e5e5;
+    height: 40px;
+    width: 40px;
+}
+
+.social button:first-child:hover {
+    background-color: #516fad;
+}
+
+.social button:nth-child(2):hover {
+    background-color: #1da1f2;
+}
+
+.social button:nth-child(3):hover {
+    background-color: #0054f7;
+}
+
+.social button:nth-child(4):hover {
+    background-color: #df3e7b;
+}
