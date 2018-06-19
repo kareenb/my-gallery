@@ -57,7 +57,7 @@ var gProjs = [
                     name: 'PSD to HTML',
                     title: 'Pixel Perfect',
                     desc: 'lorem ipsum dolor.',
-                    url: 'projs/psd-to-html',
+                    url: 'projs/psdToHtml',
                     publishedAt: getTimeStamp(),
                     // labels: ['']
                 }
