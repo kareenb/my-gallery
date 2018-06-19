@@ -548,6 +548,18 @@ header.masthead .intro-text .intro-heading {
         padding: 0 100px 20px 20px;
     }
 }
+
+.me {
+    background-color: #b0bee6b0;
+    box-shadow: 0px 9px 20px 3px #b0bee6b0;
+    padding: 20px 0;
+}
+
+.portfolio {
+    background-color: #cfd6ebb0;
+    padding: 20px 0;
+}
+
 .team-member {
     text-align: center;
 }
