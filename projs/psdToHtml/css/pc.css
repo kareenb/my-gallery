@@ -1,0 +1,110 @@
+@media (min-width: 700px) {
+    img {
+        margin-bottom: 0;
+    }
+
+    /* Header */
+
+    header {
+        position: static;
+        height: 130px;
+    }
+
+    header button {
+        display: none;
+    }
+
+    .main-menu {
+        background-color: transparent;
+        flex-direction: row;
+        position: static;
+        width: 100%;   
+        margin: 0; 
+        transform: none;
+    }
+
+    .main-menu li {
+        box-shadow: 1px 0 0 #1d1d1d;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        height: 100%;
+    }
+
+    .main-menu a {
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        width: 130px;
+        height: 130px;
+        padding: 0;
+    }
+
+    .main-menu li a.active{
+        color: #58c93a;
+        box-shadow: -1px 0 0 #1d1d1d, 1px 0 0 #1d1d1d, inset 0 -6px 0 #58c93a;
+    }
+
+    /* Main */
+
+    main.container {
+        border-left: 1px solid #e1e0e0;
+        border-right: 1px solid #e1e0e0;
+        padding-top: 80px;
+    }
+
+    .blog-posts li {
+        display: flex;
+        justify-content: space-between;
+        min-height: 305px;
+        margin-bottom: 80px;
+    }
+
+    .img {
+        width: 50%;
+        height: 100%;
+        margin-bottom: 0;
+    }
+
+    .post {
+        width: 50%;
+        margin-left: 35px;
+        height: 100%;
+    }
+
+    .post button {
+        text-align: start;
+        border: 2px solid #c2c2c2;
+        border-radius: 25px;
+        width: 185px;
+        height: 40px;
+        padding-left: 25px;
+        margin-left: 0;
+        position: relative;
+        transition: all .3s;
+        align-self: auto;
+    }
+    
+    .post button:hover {
+        border: 2px solid #58c93a;
+        width: 210px;
+    }
+
+    .post button:hover::after {
+        position: absolute;
+        right: 20px;
+    }
+
+    .subscribe-modal {
+        border: 4px solid #4f4e4e;
+        width: 500px;
+        height: 400px;
+        top: 23%;
+        left: 29%;
+    }
+
+    .modal-content {
+        height: 100%;
+        margin: 20px;
+    }
+}

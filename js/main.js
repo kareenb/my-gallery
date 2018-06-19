@@ -48,7 +48,7 @@ function renderPortItemModal(portItemId) {
                     <i class="fa fa-times"></i>
                     Close Project
                 </button>
-                <a class="btn btn-primary" href="projs/${portItemId}/index.html" target="q">Check it out</a>`
+                <a class="btn btn-primary" href="${item.url}/index.html" target="q">Check it out</a>`
 
     $('#portfolioModal .modal-body').html(strHTML);
 }
