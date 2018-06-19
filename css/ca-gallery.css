@@ -90,6 +90,8 @@ body {
     z-index: 100000;
     color: white;
     background: rgb(62, 40, 129);
+    min-width: 300px;
+    max-width: 350px;
     width: 30vw;
     left: -30vw;
     transition: all 0.3s ease;
