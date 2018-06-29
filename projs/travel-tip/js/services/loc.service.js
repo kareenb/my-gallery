@@ -20,7 +20,7 @@ function getAddress(coords) {
         .then((addressData) => {
             return addressData.json()
                 .then((jsonAddressData) => {
-                    console.log('address', jsonAddressData)
+                    // console.log('address', jsonAddressData)
                     return jsonAddressData.results[0].formatted_address;
                 });
         });

@@ -4,57 +4,63 @@ import locService from './services/loc.service.js'
 import mapService from './services/map.service.js'
 import weatherService from './services/weather.service.js'
 
+var currLoc;
+// var currLoc = { lat: 32.0749831, lng: 34.9120554 };
 
-document.querySelector('.btn-user-loc').addEventListener('click', renderLoc);
+document.querySelector('.btn-user-loc').addEventListener('click', renderUserLoc);
 // document.querySelector('.btn-inserted-loc').addEventListener('click', renderInsertedLoc);
 document.querySelector('.btn-copy-loc').addEventListener('click', copyLoc);
-    
 
-locService.getLocs()
-    .then(locs => console.log('locs', locs))
+// locService.getLocs()
+//     .then(locs => console.log('locs', locs))
 
 window.onload = () => {
-    mapService.initMap()
-        .then(
-            () => {
-                mapService.addMarker({ lat: 32.0749831, lng: 34.9120554 });
-                locService.getAddress({ lat: 32.0749831, lng: 34.9120554 })
-                    .then((addressByCoords) => {renderAddressName(addressByCoords)})
-            }
-        ).catch(console.warn);
+    mapService.initMap().catch(console.warn);
+    renderUserLoc();
+}
 
+
+function renderUserLoc() {
     locService.getPosition()
-        .then(pos => {
-            // console.log('User position is:', pos.coords);
-            return pos.coords;
+        .then(userLoc => {
+            // console.log('user Loc', userLoc)
+            let urlCoords = { lat: getParameterByName('lat'), lng: getParameterByName('lng') };
+            if (urlCoords.lat && urlCoords.lng) {
+                currLoc = urlCoords;
+                console.log('url coord', urlCoords)
+                console.log('curr loc', currLoc)
+            } else {
+                let userCoords = { lat: userLoc.coords.latitude, lng: userLoc.coords.longitude };
+                currLoc = userCoords;
+                console.log('user coord', userCoords)
+                console.log('curr loc', currLoc)
+            }
+            renderLocOnMap(currLoc);
+            renderAddressByLoc(currLoc);
+            renderWeatherByLoc(currLoc);
         })
         .catch(err => {
-            console.log('err!!!', err);
+            console.log('error in getting user location', err);
         })
 }
 
-
-function renderLoc() {
-    locService.getPosition()
-        .then(userPos => {
-            // console.log(userPos)
-            let userCoords = { lat: userPos.coords.latitude, lng: userPos.coords.longitude };
-            mapService.showUserLoc(userCoords);
-            locService.getAddress(userCoords)
-                .then((addressByCoords) => renderAddressName(addressByCoords));
-            weatherService.getWeather(userCoords)
-                .then((weatherInfo) => {
-                    // console.log (weatherInfo);
-                    renderWeather(weatherInfo);
-                });            
-        });
+function renderLocOnMap(coords) {
+    mapService.showUserLoc(coords);
 }
 
+function renderAddressByLoc(coords) {
+    locService.getAddress(coords)
+        .then((addressByCoords) => renderAddressName(addressByCoords));
+}
 
 function renderAddressName(address) {
     document.querySelector('.curr-loc').innerHTML = `Location: ${address}`;
 }
 
+function renderWeatherByLoc(coords) {
+    weatherService.getWeather(coords)
+        .then((weatherInfo) => renderWeather(weatherInfo));
+}
 
 function renderWeather(weatherInfo) {
     document.querySelector('.weather img').src = `http://openweathermap.org/img/w/${weatherInfo.weatherIcon}.png`;
@@ -71,9 +77,20 @@ function renderWeather(weatherInfo) {
 // }
 
 function copyLoc() {
-    let elCopiedAddress = document.querySelector('.copy-loc')
-    // elCopiedAddress.value = `kareenb.github.io/my-gallery/projs/travel-tip/index.html?lat=${}&lng=${}`;
-    elCopiedAddress.value = "my txt"
-    elCopiedAddress.select();
+    let elAddressToCopy = document.querySelector('.copy-loc');
+    elAddressToCopy.classList.toggle('hidden');
+    elAddressToCopy.value = `kareenb.github.io/my-gallery/projs/travel-tip/index.html?lat=${currLoc.lat}&lng=${currLoc.lng}`;
+    elAddressToCopy.select();
     document.execCommand('copy');
+    elAddressToCopy.classList.toggle('hidden');
+}
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
