@@ -1,7 +1,7 @@
 function getWeather(coords) {
     const W_KEY = '3e5fd72d3965dc3ccc6fba905bf066ea';
     try {
-        return fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lng}&units=metric&APPID=${W_KEY}`)
+        return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lng}&units=metric&APPID=${W_KEY}`)
             .then((weatherData) => {
                 return weatherData.json()
                     .then((jsonWeatherData) => {
