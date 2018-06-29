@@ -25,6 +25,7 @@ function renderUserLoc() {
     locService.getPosition()
         .then(userLoc => {
             // console.log('user Loc', userLoc)
+            console.log('bamba', getParameterByName('lat'), typeof(getParameterByName('lat')))
             let urlCoords = { lat: getParameterByName('lat'), lng: getParameterByName('lng') };
             if (urlCoords.lat && urlCoords.lng && !isLoadedFromUrl) {
                 currLoc = urlCoords;
@@ -61,7 +62,7 @@ function renderWeatherByLoc(coords) {
 }
 
 function renderWeather(weatherInfo) {
-    document.querySelector('.weather img').src = `http://openweathermap.org/img/w/${weatherInfo.weatherIcon}.png`;
+    document.querySelector('.weather img').src = `https://openweathermap.org/img/w/${weatherInfo.weatherIcon}.png`;
     document.querySelector('.weather img').alt = `${weatherInfo.weatherCondition} weather condition`;
     document.querySelector('.weather h4').innerText = `${weatherInfo.city}, ${weatherInfo.country}`;
     document.querySelector('.weather h5').innerText = weatherInfo.weatherCondition;
