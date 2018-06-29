@@ -1,10 +1,11 @@
 // console.log('Main!');
 
-import locService from './services/loc.service.js'
-import mapService from './services/map.service.js'
-import weatherService from './services/weather.service.js'
+import locService from './services/loc.service.js';
+import mapService from './services/map.service.js';
+import weatherService from './services/weather.service.js';
 
 var currLoc;
+var isLoadedFromUrl = false;
 // var currLoc = { lat: 32.0749831, lng: 34.9120554 };
 
 document.querySelector('.btn-user-loc').addEventListener('click', renderUserLoc);
@@ -25,15 +26,12 @@ function renderUserLoc() {
         .then(userLoc => {
             // console.log('user Loc', userLoc)
             let urlCoords = { lat: getParameterByName('lat'), lng: getParameterByName('lng') };
-            if (urlCoords.lat && urlCoords.lng) {
+            if (urlCoords.lat && urlCoords.lng && !isLoadedFromUrl) {
                 currLoc = urlCoords;
-                console.log('url coord', urlCoords)
-                console.log('curr loc', currLoc)
+                isLoadedFromUrl = true;
             } else {
                 let userCoords = { lat: userLoc.coords.latitude, lng: userLoc.coords.longitude };
                 currLoc = userCoords;
-                console.log('user coord', userCoords)
-                console.log('curr loc', currLoc)
             }
             renderLocOnMap(currLoc);
             renderAddressByLoc(currLoc);
