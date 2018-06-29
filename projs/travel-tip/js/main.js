@@ -18,6 +18,8 @@ window.onload = () => {
         .then(
             () => {
                 mapService.addMarker({ lat: 32.0749831, lng: 34.9120554 });
+                locService.getAddress({ lat: 32.0749831, lng: 34.9120554 })
+                    .then((addressByCoords) => {renderAddressName(addressByCoords)})
             }
         ).catch(console.warn);
 
@@ -69,5 +71,9 @@ function renderWeather(weatherInfo) {
 // }
 
 function copyLoc() {
-    
+    let elCopiedAddress = document.querySelector('.copy-loc')
+    // elCopiedAddress.value = `kareenb.github.io/my-gallery/projs/travel-tip/index.html?lat=${}&lng=${}`;
+    elCopiedAddress.value = "my txt"
+    elCopiedAddress.select();
+    document.execCommand('copy');
 }
