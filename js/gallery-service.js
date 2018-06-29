@@ -60,6 +60,16 @@ var gProjs = [
                     url: 'projs/psdToHtml',
                     publishedAt: getTimeStamp(),
                     // labels: ['']
+                },
+
+                {
+                    id: 'travel-tip',
+                    name: 'Travel Tip',
+                    title: 'lorem',
+                    desc: 'lorem ipsum dolor.',
+                    url: 'projs/travel-tip',
+                    publishedAt: getTimeStamp(),
+                    // labels: ['']
                 }
 ];
 
