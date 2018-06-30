@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
     <link href="css/main.css" rel="stylesheet" />
     <title>TravelTip</title>
 </head>
+
 <body>
-    <h1>TravelTip</h1>
-    <h2 class="curr-loc"></h2>
-    <div id="map" style="width: 100%; height: 400px;"></div>
-    <input type="text" class="user-inserted-loc" />
-    <button class="btn-inserted-loc">GO</button>
-    <button class="btn-user-loc">My Location</button>
-    <button class="btn-copy-loc">Copy Location</button>
-    <div class="weather">
-        <h3>Weather Today</h3>
-        <img src="" alt="" class="weather-icon" />
-        <h4></h4><h5></h5>
-        <p></p>
+    <header>
+        <div class="bg-img"></div>
+        <h1 class="logo">TravelTip</h1>
+    </header>
+
+    <div class="map-title container">
+        <h2 class="curr-loc"></h2>
+    </div>
+    <div id="map" class="map"></div>
+    <div class="user-content container flex column center-align">
+        <div class="user-opts flex center-justify flex-wrap">
+            <div class="srch-address flex">
+                <input type="text" placeholder="Where?" class="user-inserted-loc" />
+                <button class="btn btn-inserted-loc">Search</button>
+            </div>
+            <button class="btn btn-user-loc">My Location</button>
+            <button class="btn btn-copy-loc">Copy Location</button>
+        </div>
+        <div class="weather">
+            <h3>Weather Today</h3>
+            <div class="weather-info">
+                <img src="" alt="" class="weather-icon" />
+                <h4></h4>
+                <h4></h4>
+                <p></p>
+            </div>
+        </div>
     </div>
 
     <input class="copy-loc hidden" />
 
     <script type="module" src="js/main.js"></script>
 </body>
+
 </html>
